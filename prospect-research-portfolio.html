@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guest Post Prospect Research Report — Portfolio Sample</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --ink-soft: #4a4a6a;
+    --ink-muted: #8888aa;
+    --accent: #2d6a4f;
+    --accent-light: #e8f5f0;
+    --accent-mid: #b7dfcf;
+    --warn: #c97b2a;
+    --warn-light: #fdf3e3;
+    --red: #c0392b;
+    --red-light: #fdf0ee;
+    --surface: #fafaf8;
+    --white: #ffffff;
+    --border: #e2e2ec;
+    --border-soft: #f0f0f6;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--white);
+    min-height: 100vh;
+    box-shadow: 0 0 60px rgba(0,0,0,0.06);
+  }
+
+  /* HEADER */
+  .doc-header {
+    background: var(--ink);
+    padding: 40px 48px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .doc-header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(45,106,79,0.15);
+  }
+
+  .doc-header::after {
+    content: '';
+    position: absolute;
+    bottom: -20px; left: 30%;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(45,106,79,0.08);
+  }
+
+  .label-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+
+  .doc-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .doc-subtitle {
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    font-weight: 300;
+    position: relative;
+  }
+
+  .meta-row {
+    display: flex;
+    gap: 24px;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+  }
+
+  .meta-item label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 4px;
+  }
+
+  .meta-item span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+  }
+
+  /* STATUS BADGE */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  .status-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .status-pending { background: var(--warn-light); color: var(--warn); }
+  .status-approved { background: var(--accent-light); color: var(--accent); }
+  .status-live { background: #e8f0fe; color: #1a56db; }
+  .status-declined { background: var(--red-light); color: var(--red); }
+
+  /* BODY */
+  .doc-body {
+    padding: 0 48px 48px;
+  }
+
+  /* SECTION */
+  .section {
+    margin-top: 36px;
+  }
+
+  .section-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* METRICS GRID */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+
+  .metric-card {
+    background: var(--border-soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .metric-card .metric-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .metric-card .metric-value.good { color: var(--accent); }
+  .metric-card .metric-value.warn { color: var(--warn); }
+  .metric-card .metric-value.na { color: var(--ink-muted); font-size: 16px; }
+
+  .metric-card .metric-label {
+    font-size: 10px;
+    color: var(--ink-muted);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .metric-note {
+    font-size: 10px;
+    color: var(--ink-muted);
+    font-style: italic;
+    margin-top: 8px;
+  }
+
+  /* INFO ROWS */
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .info-table tr {
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .info-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .info-table td {
+    padding: 10px 0;
+    vertical-align: top;
+  }
+
+  .info-table td:first-child {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: var(--ink-soft);
+    width: 180px;
+    padding-right: 16px;
+  }
+
+  .info-table td:last-child {
+    color: var(--ink);
+    font-size: 13px;
+  }
+
+  a.link {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent-mid);
+  }
+
+  /* CHECKLIST */
+  .checklist {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--ink);
+  }
+
+  .check-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    margin-top: 1px;
+  }
+
+  .check-yes { background: var(--accent-light); color: var(--accent); }
+  .check-no { background: var(--red-light); color: var(--red); }
+  .check-unknown { background: var(--warn-light); color: var(--warn); }
+
+  /* PITCH ANGLE */
+  .pitch-box {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+  }
+
+  .pitch-box .pitch-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .pitch-box p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+
+  /* TARGET URL */
+  .url-pill {
+    display: inline-block;
+    background: var(--ink);
+    color: #fff;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-family: monospace;
+    word-break: break-all;
+  }
+
+  /* NOTES */
+  .notes-box {
+    background: var(--warn-light);
+    border: 1px solid #f0d9b5;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  .notes-box strong {
+    color: var(--warn);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* DUPLICATE CHECK */
+  .dup-check {
+    display: flex;
+    gap: 12px;
+  }
+
+  .dup-item {
+    flex: 1;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .dup-item .dup-site {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+
+  .dup-item .dup-result {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .dup-clear { color: var(--accent); }
+  .dup-found { color: var(--red); }
+
+  /* PORTFOLIO BANNER */
+  .portfolio-banner {
+    background: #1a56db;
+    color: #fff;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 8px;
+  }
+
+  /* FOOTER */
+  .doc-footer {
+    margin-top: 48px;
+    padding: 24px 48px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--border-soft);
+  }
+
+  .footer-note {
+    font-size: 11px;
+    color: var(--ink-muted);
+  }
+
+  .portfolio-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    background: var(--border);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="portfolio-banner">🗂 Portfolio Sample — Client & Prospect Details Withheld (NDA)</div>
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="label-tag">Digital PR · Guest Post Outreach</div>
+    <h1 class="doc-title">Prospect Research Report</h1>
+    <p class="doc-subtitle">Pre-pitch analysis for guest post link building</p>
+
+    <div class="meta-row">
+      <div class="meta-item">
+        <label>Prospect</label>
+        <span>Philippine Real Estate Portal</span>
+      </div>
+      <div class="meta-item">
+        <label>Client</label>
+        <span>Smart Home Technology Brand [NDA]</span>
+      </div>
+      <div class="meta-item">
+        <label>Date Researched</label>
+        <span>April 2026</span>
+      </div>
+      <div class="meta-item">
+        <label>Status</label>
+        <span><span class="status-badge status-pending">Pending Approval</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="doc-body">
+
+    <!-- SECTION: SITE OVERVIEW -->
+    <div class="section">
+      <div class="section-title">Site Overview</div>
+      <table class="info-table">
+        <tr>
+          <td>Niche / Category</td>
+          <td>Philippine real estate, home buying, home improvement, smart home, sustainable living</td>
+        </tr>
+        <tr>
+          <td>Audience</td>
+          <td>Filipino homebuyers, property investors, and homeowners in Metro Manila</td>
+        </tr>
+        <tr>
+          <td>Blog Last Updated</td>
+          <td>March 2026 — actively publishing</td>
+        </tr>
+        <tr>
+          <td>Guest Post History</td>
+          <td>Confirmed — site has published guest posts from external brand contributors with byline and external links. Precedent found in Tips & Tricks category.</td>
+        </tr>
+        <tr>
+          <td>Contact Method</td>
+          <td>Email outreach via editor contact</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- SECTION: METRICS -->
+    <div class="section">
+      <div class="section-title">Site Metrics</div>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-value good">27</div>
+          <div class="metric-label">MOZ DA</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value good">10.5K</div>
+          <div class="metric-label">Monthly Traffic</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value na">—</div>
+          <div class="metric-label">Ahrefs DR</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value na">—</div>
+          <div class="metric-label">Spam Score</div>
+        </div>
+      </div>
+      <p class="metric-note">* Traffic via SimilarWeb (Feb 2026). Ahrefs DR and spam score to be verified before outreach is initiated.</p>
+    </div>
+
+    <!-- SECTION: RELEVANCE CHECK -->
+    <div class="section">
+      <div class="section-title">Relevance & Fit Check</div>
+      <ul class="checklist">
+        <li>
+          <span class="check-icon check-yes">✓</span>
+          Blog covers sustainable home improvements
+        </li>
+        <li>
+          <span class="check-icon check-yes">✓</span>
+          Published smart home and PropTech content
+        </li>
+        <li>
+          <span class="check-icon check-yes">✓</span>
+          Solar energy mentioned in existing article
+        </li>
+        <li>
+          <span class="check-icon check-yes">✓</span>
+          Accepts product-adjacent guest posts (confirmed via precedent)
+        </li>
+        <li>
+          <span class="check-icon check-yes">✓</span>
+          Audience matches client's target buyer profile
+        </li>
+        <li>
+          <span class="check-icon check-yes">✓</span>
+          Actively publishing as of research date
+        </li>
+        <li>
+          <span class="check-icon check-unknown">?</span>
+          Guest post rate — unknown, to be negotiated
+        </li>
+        <li>
+          <span class="check-icon check-unknown">?</span>
+          Ahrefs DR to be confirmed when tools available
+        </li>
+      </ul>
+    </div>
+
+    <!-- SECTION: DUPLICATE CONTENT CHECK -->
+    <div class="section">
+      <div class="section-title">Duplicate Content Check</div>
+      <div class="dup-check">
+        <div class="dup-item">
+          <div class="dup-site">Prospect Website</div>
+          <div class="dup-result dup-clear">✓ Clear</div>
+          <p style="font-size:12px;color:var(--ink-soft);margin-top:4px;">No existing content about the proposed topic found on the prospect's site. No overlap risk.</p>
+        </div>
+        <div class="dup-item">
+          <div class="dup-site">Client Website</div>
+          <div class="dup-result dup-clear">✓ Clear</div>
+          <p style="font-size:12px;color:var(--ink-soft);margin-top:4px;">Client has product pages but no editorial blog content on the proposed angle. No duplicate risk.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: PROPOSED ANGLE -->
+    <div class="section">
+      <div class="section-title">Proposed Article Angle</div>
+      <div class="pitch-box">
+        <div class="pitch-label">Pitch Concept</div>
+        <p>Solar-powered home security as part of the smart home upgrade checklist for Filipino homeowners — framed around energy efficiency, zero wiring cost, and long-term property value. The angle connects naturally to the site's existing sustainability content and mirrors the editorial model already proven by a previous guest post on a home improvement product.</p>
+      </div>
+    </div>
+
+    <!-- SECTION: TARGET URL -->
+    <div class="section">
+      <div class="section-title">Link Placement Details</div>
+      <table class="info-table">
+        <tr>
+          <td>Target Page</td>
+          <td><span class="url-pill">[Client Product Page — NDA]</span></td>
+        </tr>
+        <tr>
+          <td>Reference Article</td>
+          <td>Existing prospect article on home resale value — used as editorial precedent and angle reference</td>
+        </tr>
+        <tr>
+          <td>Suggested Category</td>
+          <td>Tips & Tricks / Home Improvement</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- SECTION: BUDGET -->
+    <div class="section">
+      <div class="section-title">Budget Estimate</div>
+      <table class="info-table">
+        <tr>
+          <td>Max Client Budget</td>
+          <td>~$100 USD (approx. ₱5,700)</td>
+        </tr>
+        <tr>
+          <td>Comparable Placements</td>
+          <td>Previous guest posts on this campaign closed at ₱3,000–₱4,500 after negotiation</td>
+        </tr>
+        <tr>
+          <td>Rate Risk</td>
+          <td>Medium — site quality may price above budget. Negotiation likely needed.</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- SECTION: NOTES -->
+    <div class="section">
+      <div class="section-title">Researcher Notes</div>
+      <div class="notes-box">
+        <strong>⚠ Context</strong>
+        This prospect was identified proactively — not assigned. Research was conducted independently to expand the campaign's guest post pipeline. DR and spam score verification pending. Mentor/client approval required before outreach is initiated. If rate exceeds budget, flagged for future pipeline when budget becomes available.
+      </div>
+    </div>
+
+    <!-- SECTION: NEXT STEPS -->
+    <div class="section">
+      <div class="section-title">Next Steps</div>
+      <table class="info-table">
+        <tr>
+          <td>Step 1</td>
+          <td>Present report to campaign lead for approval</td>
+        </tr>
+        <tr>
+          <td>Step 2</td>
+          <td>Verify DR and spam score when Ahrefs is accessible</td>
+        </tr>
+        <tr>
+          <td>Step 3</td>
+          <td>If approved, send pitch email to site editor</td>
+        </tr>
+        <tr>
+          <td>Step 4</td>
+          <td>Negotiate rate within budget; confirm guest post guidelines</td>
+        </tr>
+        <tr>
+          <td>Step 5</td>
+          <td>Brief writer on angle and target URL if accepted</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <div class="footer-note">Prepared by: Laviet Jacq Cerda &nbsp;·&nbsp; Digital PR Link Building &nbsp;·&nbsp; April 2026</div>
+    <div class="portfolio-tag">Portfolio Sample</div>
+  </div>
+
+</div>
+</body>
+</html>
