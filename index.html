@@ -4,728 +4,963 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jacquis Cerda — Digital PR Specialist</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ink: #0f0f0f;
-    --paper: #f5f0e8;
-    --accent: #c8472b;
-    --muted: #7a7060;
-    --rule: #d8d0c0;
-    --tag-bg: #e8e0d0;
+    --ink: #1A1A1A;
+    --accent: #C8472B;
+    --muted: #6B6560;
+    --bg: #F7F3EE;
+    --white: #FFFFFF;
+    --rule: #DDD8D2;
+    --tag-bg: #EDE9E4;
   }
 
-  html { scroll-behavior: smooth; }
+  html { font-size: 16px; scroll-behavior: smooth; }
 
   body {
-    background: var(--paper);
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
     color: var(--ink);
-    font-family: 'Manrope', sans-serif;
-    font-weight: 300;
     line-height: 1.7;
-    overflow-x: hidden;
   }
 
-  /* ── GRAIN OVERLAY ── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 999;
-    opacity: 0.4;
-  }
-
-  /* ── HEADER ── */
-  header {
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(247, 243, 238, 0.92);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--rule);
-    padding: 2rem 4rem;
+    z-index: 100;
+    padding: 0 2rem;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: baseline;
-    animation: fadeDown 0.8s ease both;
+    height: 56px;
   }
 
-  .logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.3rem;
-    letter-spacing: -0.02em;
-  }
-
-  .logo span { color: var(--accent); }
-
-  nav a {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
     text-decoration: none;
-    color: var(--muted);
-    margin-left: 2rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
     transition: color 0.2s;
   }
-  nav a:hover { color: var(--accent); }
 
-  /* ── HERO ── */
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 0.4rem 1rem;
+    border: 1.5px solid var(--accent);
+    border-radius: 3px;
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--accent); color: var(--white); }
+
+  /* HERO */
   .hero {
-    padding: 7rem 4rem 5rem;
-    max-width: 900px;
-    animation: fadeUp 0.9s 0.1s ease both;
-  }
-
-  .hero-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-  }
-  .hero-label::before {
-    content: '';
-    display: inline-block;
-    width: 2rem;
-    height: 1px;
-    background: var(--accent);
+    padding: 6rem 2rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 4rem;
   }
 
-  h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(3rem, 7vw, 5.5rem);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    margin-bottom: 2rem;
-  }
+  .hero-left { flex: 1; }
 
-  h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .hero-sub {
-    font-size: 1.1rem;
-    color: var(--muted);
-    max-width: 520px;
-    line-height: 1.8;
-  }
-
-  /* ── STATS STRIP ── */
-  .stats {
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    animation: fadeUp 0.9s 0.25s ease both;
-  }
-
-  .stat {
-    padding: 2.5rem 4rem;
-    border-right: 1px solid var(--rule);
-    transition: background 0.2s;
-  }
-  .stat:last-child { border-right: none; }
-  .stat:hover { background: rgba(200,71,43,0.04); }
-
-  .stat-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 3rem;
-    line-height: 1;
-    margin-bottom: 0.4rem;
-    color: var(--ink);
-  }
-
-  .stat-num sup {
-    font-size: 1.2rem;
-    color: var(--accent);
-  }
-
-  .stat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  /* ── SECTION ── */
-  section {
-    padding: 5rem 4rem;
-    border-bottom: 1px solid var(--rule);
-    animation: fadeUp 0.9s 0.35s ease both;
-  }
-
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 3rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-    max-width: 200px;
-  }
-
-  h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    letter-spacing: -0.02em;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-  }
-
-  /* ── PLACEMENTS TABLE ── */
-  .placements {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 2rem;
-  }
-
-  .placements thead tr {
-    border-bottom: 2px solid var(--ink);
-  }
-
-  .placements th {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding: 0.75rem 1rem 0.75rem 0;
-    text-align: left;
-    font-weight: 500;
-  }
-
-  .placements td {
-    padding: 1.1rem 1rem 1.1rem 0;
-    border-bottom: 1px solid var(--rule);
-    font-size: 0.9rem;
-    vertical-align: middle;
-  }
-
-  .placements tr:hover td { background: rgba(200,71,43,0.03); }
-
-  .pub-name {
-    font-weight: 500;
-    color: var(--ink);
-  }
-
-  .dr-badge {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
+  .hero-eyebrow {
     font-size: 0.75rem;
     font-weight: 500;
-    padding: 0.2rem 0.6rem;
-    border-radius: 2px;
-    background: var(--tag-bg);
-    color: var(--ink);
-  }
-
-  .dr-badge.high {
-    background: var(--ink);
-    color: var(--paper);
-  }
-
-  .dr-badge.mid {
-    background: #d4c9b5;
-    color: var(--ink);
-  }
-
-  .type-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--muted);
-    border: 1px solid var(--rule);
-    padding: 0.2rem 0.55rem;
-    border-radius: 2px;
-  }
-
-  .type-tag.featured {
-    border-color: var(--accent);
     color: var(--accent);
-  }
-
-  .month-row td {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding: 1.5rem 0 0.5rem;
-    border-bottom: none;
-    background: transparent !important;
-  }
-
-  /* ── PROCESS ── */
-  .process-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    margin-top: 2rem;
-    border: 1px solid var(--rule);
-  }
-
-  .process-item {
-    padding: 2.5rem;
-    border-right: 1px solid var(--rule);
-    transition: background 0.2s;
-  }
-  .process-item:last-child { border-right: none; }
-  .process-item:hover { background: rgba(200,71,43,0.03); }
-
-  .process-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 3rem;
-    color: var(--rule);
-    line-height: 1;
     margin-bottom: 1.2rem;
   }
 
-  .process-title {
-    font-weight: 600;
-    font-size: 0.95rem;
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 2.4rem;
+    line-height: 1.8;
+  }
+
+  .hero-desc strong { color: var(--ink); font-weight: 500; }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.7rem 1.6rem;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: opacity 0.2s;
+  }
+
+  .btn-primary:hover { opacity: 0.88; }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 0.7rem 1.6rem;
+    border: 1.5px solid var(--rule);
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: var(--ink); color: var(--ink); }
+
+  /* STATS ROW */
+  .stats-row {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .stat { display: flex; flex-direction: column; gap: 2px; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .stat-div {
+    width: 1px;
+    background: var(--rule);
+    align-self: stretch;
+  }
+
+  /* HERO RIGHT */
+  .hero-right {
+    flex: 0 0 300px;
+  }
+
+  .placement-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  .card-header {
+    padding: 1rem 1.25rem 0.75rem;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .placement-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 1.25rem;
+    border-bottom: 1px solid var(--rule);
+    gap: 0.75rem;
+  }
+
+  .placement-item:last-child { border-bottom: none; }
+
+  .pub-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .pub-platform {
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+
+  .dr-tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .dr-high { background: #E1F5EE; color: #0A6E52; }
+  .dr-mid  { background: #E6F1FB; color: #1558A5; }
+  .dr-low  { background: var(--tag-bg); color: var(--muted); }
+
+  /* SECTION LAYOUT */
+  section {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
     margin-bottom: 0.6rem;
-    letter-spacing: -0.01em;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .section-rule {
+    width: 40px;
+    height: 3px;
+    background: var(--accent);
+    margin-bottom: 2.4rem;
+  }
+
+  /* DIVIDER */
+  .divider {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    border: none;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* HOW IT WORKS */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 0.5rem;
+  }
+
+  .process-item {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+
+  .process-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    opacity: 0.25;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .process-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
   }
 
   .process-desc {
-    font-size: 0.85rem;
+    font-size: 0.825rem;
     color: var(--muted);
-    line-height: 1.7;
-  }
-
-  /* ── PACKAGES ── */
-  .packages-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-
-  .package {
-    border: 1px solid var(--rule);
-    padding: 2.5rem;
-    position: relative;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .package:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-  }
-
-  .package.featured-pkg {
-    border-color: var(--ink);
-    background: var(--ink);
-    color: var(--paper);
-  }
-
-  .pkg-badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-  }
-
-  .featured-pkg .pkg-badge { color: #e8c4ba; }
-
-  .pkg-name {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.6rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.02em;
-  }
-
-  .pkg-price {
-    font-family: 'DM Mono', monospace;
-    font-size: 1.8rem;
-    font-weight: 500;
-    margin-bottom: 0.3rem;
-    color: var(--accent);
-  }
-
-  .featured-pkg .pkg-price { color: #e8c4ba; }
-
-  .pkg-price-note {
-    font-size: 0.75rem;
-    color: var(--muted);
-    margin-bottom: 2rem;
-    font-family: 'DM Mono', monospace;
-  }
-
-  .featured-pkg .pkg-price-note { color: #9a8f84; }
-
-  .pkg-divider {
-    height: 1px;
-    background: var(--rule);
-    margin-bottom: 1.5rem;
-  }
-
-  .featured-pkg .pkg-divider { background: #3a3a3a; }
-
-  .pkg-features {
-    list-style: none;
-    font-size: 0.85rem;
     line-height: 1.6;
   }
 
-  .pkg-features li {
-    padding: 0.4rem 0;
+  /* SERVICE */
+  .service-box {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 2.5rem;
+    max-width: 600px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--accent);
+  }
+
+  .service-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .service-price span {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--muted);
+    vertical-align: middle;
+  }
+
+  .service-subtitle {
+    font-size: 0.825rem;
+    color: var(--muted);
+    margin-bottom: 1.8rem;
+  }
+
+  .service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .service-list li {
+    font-size: 0.875rem;
+    color: var(--ink);
     display: flex;
     gap: 0.6rem;
     align-items: flex-start;
   }
 
-  .pkg-features li::before {
-    content: '→';
+  .service-list li::before {
+    content: '—';
     color: var(--accent);
-    font-family: 'DM Mono', monospace;
-    font-size: 0.75rem;
+    font-weight: 500;
     flex-shrink: 0;
-    margin-top: 0.1rem;
+    margin-top: 1px;
   }
 
-  .featured-pkg .pkg-features li { color: #c8c0b8; }
+  .service-note {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-style: italic;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+  }
 
-  /* ── RETAINER NOTE ── */
-  .retainer-note {
-    margin-top: 2rem;
-    padding: 2rem 2.5rem;
+  /* PLATFORMS */
+  .platform-tags {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .ptag {
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.35rem 0.9rem;
     border: 1px solid var(--rule);
-    border-left: 3px solid var(--accent);
-    background: rgba(200,71,43,0.03);
+    border-radius: 20px;
+    color: var(--muted);
+    background: var(--white);
   }
 
-  .retainer-note p {
-    font-size: 0.9rem;
+  .ptag.featured {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(200, 71, 43, 0.04);
+  }
+
+  /* NICHES */
+  .niche-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .niche-item {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 1.1rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .niche-sub {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--muted);
+    margin-top: 0.2rem;
+  }
+
+  /* PORTFOLIO */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .portfolio-item {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: box-shadow 0.2s;
+  }
+
+  .portfolio-item:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  .portfolio-pub {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+
+  .portfolio-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .portfolio-desc {
+    font-size: 0.825rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
     color: var(--muted);
     line-height: 1.8;
+    margin-bottom: 1rem;
   }
 
-  .retainer-note strong { color: var(--ink); }
+  .about-text p strong { color: var(--ink); font-weight: 500; }
 
-  /* ── CTA ── */
-  .cta-section {
-    padding: 6rem 4rem;
+  .about-skills {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4rem;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .cta-text h2 { margin-bottom: 0.8rem; }
-  .cta-text p { color: var(--muted); max-width: 420px; }
+  .skill-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
 
-  .cta-btn {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.75rem;
+  .skill-label {
+    font-size: 0.72rem;
+    font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    text-decoration: none;
-    color: var(--paper);
+    color: var(--muted);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .skill-tag {
+    font-size: 0.78rem;
+    padding: 0.25rem 0.7rem;
+    background: var(--tag-bg);
+    border-radius: 3px;
+    color: var(--ink);
+  }
+
+  /* CTA STRIP */
+  .cta-strip {
     background: var(--ink);
-    padding: 1.1rem 2.5rem;
-    border: 2px solid var(--ink);
-    transition: background 0.2s, color 0.2s;
-    white-space: nowrap;
+    padding: 5rem 2rem;
+    text-align: center;
   }
 
-  .cta-btn:hover {
+  .cta-strip h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-strip p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 2rem;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-email {
+    display: inline-block;
+    padding: 0.75rem 2rem;
     background: var(--accent);
-    border-color: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: opacity 0.2s;
   }
 
-  /* ── FOOTER ── */
+  .cta-email:hover { opacity: 0.88; }
+
+  .cta-alt {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* FOOTER */
   footer {
-    border-top: 1px solid var(--rule);
-    padding: 2rem 4rem;
+    background: #111;
+    padding: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 
-  footer p {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  footer span {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
   }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-12px); }
-    to   { opacity: 1; transform: translateY(0); }
+  footer a {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
   }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  footer a:hover { color: var(--accent); }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    header, .hero, section, .cta-section, footer { padding-left: 2rem; padding-right: 2rem; }
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .stat { padding: 2rem; }
-    .process-grid, .packages-grid { grid-template-columns: 1fr; }
-    .process-item { border-right: none; border-bottom: 1px solid var(--rule); }
-    .cta-section { flex-direction: column; }
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero { flex-direction: column; gap: 2.5rem; min-height: auto; padding-top: 5rem; }
+    .hero-right { flex: 0 0 auto; width: 100%; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { display: none; }
   }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="logo">Jacquis <span>Cerda</span></div>
-  <nav>
-    <a href="#placements">Work</a>
-    <a href="#samples">Samples</a>
-    <a href="#process">Process</a>
-    <a href="#packages">Packages</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Jacquis Cerda</a>
+  <ul class="nav-links">
+    <li><a href="#service">Service</a></li>
+    <li><a href="#placements">Placements</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="agency.html">Agency Version</a></li>
+  </ul>
+  <a href="mailto:jacqxbusiness@gmail.com" class="nav-cta">Get in Touch</a>
+</nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-label">Digital PR · Link Building</div>
-  <h1>Editorial links<br>that <em>actually</em><br>move the needle.</h1>
-  <p class="hero-sub">I place brands as expert sources in publications across the US and UK — earned editorial coverage, not paid advertorials. DR 35 minimum, verified do-follow.</p>
-</div>
-
-<!-- STATS -->
-<div class="stats">
-  <div class="stat">
-    <div class="stat-num">17<sup>+</sup></div>
-    <div class="stat-label">Links Built</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">80</div>
-    <div class="stat-label">Highest DR Placed</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">3</div>
-    <div class="stat-label">Months · 1 Client</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">5</div>
-    <div class="stat-label">DR 70+ Placements</div>
-  </div>
-</div>
-
-<!-- PLACEMENTS -->
-<section id="placements">
-  <div class="section-label">Placement Record</div>
-  <h2>Where the work has landed.</h2>
-  <p style="color:var(--muted);font-size:0.9rem;margin-bottom:0.5rem;">All placements earned for a single client in the consumer electronics space. Client name withheld under NDA. Publications and DR scores are publicly verifiable.</p>
-
-  <table class="placements">
-    <thead>
-      <tr>
-        <th>Publication</th>
-        <th>DA</th>
-        <th>Type</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="pub-name">TechBullion</span><br><span style="font-size:0.75rem;color:var(--muted);">techbullion.com</span></td>
-        <td><span class="dr-badge high">DR 80</span></td>
-        <td><span class="type-tag featured">Featured</span></td>
-      </tr>
-      <tr>
-        <td><span class="pub-name">Survicate</span><br><span style="font-size:0.75rem;color:var(--muted);">survicate.com</span></td>
-        <td><span class="dr-badge high">DR 78</span></td>
-        <td><span class="type-tag">Mention Match</span></td>
-      </tr>
-      <tr>
-        <td><span class="pub-name">Techround UK</span><br><span style="font-size:0.75rem;color:var(--muted);">techround.co.uk</span></td>
-        <td><span class="dr-badge high">DR 76</span></td>
-        <td><span class="type-tag">Qwoted</span></td>
-      </tr>
-      <tr>
-        <td><span class="pub-name">Techround UK</span><br><span style="font-size:0.75rem;color:var(--muted);">techround.co.uk</span></td>
-        <td><span class="dr-badge high">DR 76</span></td>
-        <td><span class="type-tag">Qwoted</span></td>
-      </tr>
-      <tr>
-        <td><span class="pub-name">Devx</span><br><span style="font-size:0.75rem;color:var(--muted);">devx.com</span></td>
-        <td><span class="dr-badge high">DR 74</span></td>
-        <td><span class="type-tag featured">Featured</span></td>
-      </tr>
-      <tr>
-        <td><span class="pub-name">Letsenhance</span><br><span style="font-size:0.75rem;color:var(--muted);">letsenhance.io</span></td>
-        <td><span class="dr-badge high">DR 74</span></td>
-        <td><span class="type-tag featured">Featured</span></td>
-      </tr>
-      <tr>
-        <td><span class="pub-name">Best Companies AZ</span><br><span style="font-size:0.75rem;color:var(--muted);">bestcompaniesaz.com</span></td>
-        <td><span class="dr-badge mid">DR 55</span></td>
-        <td><span class="type-tag featured">Featured</span></td>
-      </tr>
-      <tr>
-        <td><span class="pub-name">Westfield Creative</span><br><span style="font-size:0.75rem;color:var(--muted);">westfield-creative.com</span></td>
-        <td><span class="dr-badge mid">DR 48</span></td>
-        <td><span class="type-tag featured">Featured</span></td>
-      </tr>
-      <tr>
-        <td><span class="pub-name">Leadgrow Develop</span><br><span style="font-size:0.75rem;color:var(--muted);">leadgrowdevelop.com</span></td>
-        <td><span class="dr-badge mid">DR 48</span></td>
-        <td><span class="type-tag featured">Featured</span></td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- WORK SAMPLES -->
-<section id="samples">
-  <div class="section-label">Work Samples</div>
-  <h2>How I research before I pitch.</h2>
-  <p style="color:var(--muted);font-size:0.9rem;margin-bottom:2rem;">This sample shows my pre-pitch research process for a guest post prospect — identified proactively, outside my assigned task list. Client and prospect details withheld under NDA.</p>
-
-  <a href="prospect-research-portfolio.html" target="_blank" style="text-decoration:none;">
-    <div style="
-      border: 1px solid var(--rule);
-      padding: 2rem 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      transition: border-color 0.2s, background 0.2s;
-      cursor: pointer;
-    "
-    onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(200,71,43,0.03)'"
-    onmouseout="this.style.borderColor='var(--rule)';this.style.background='transparent'"
-    >
-      <div>
-        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;">Guest Post Outreach · April 2026</div>
-        <div style="font-family:'DM Serif Display',serif;font-size:1.3rem;letter-spacing:-0.01em;color:var(--ink);margin-bottom:0.5rem;">Prospect Research Report</div>
-        <p style="font-size:0.85rem;color:var(--muted);max-width:480px;line-height:1.7;">Pre-pitch analysis covering site metrics, relevance fit, duplicate content check, proposed article angle, and budget risk assessment — for a Philippine real estate portal prospect.</p>
-        <div style="display:flex;gap:0.6rem;margin-top:1rem;flex-wrap:wrap;">
-          <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);border:1px solid var(--rule);padding:0.2rem 0.55rem;border-radius:2px;">MOZ DA 27</span>
-          <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);border:1px solid var(--rule);padding:0.2rem 0.55rem;border-radius:2px;">10.5K Traffic</span>
-          <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);border:1px solid var(--rule);padding:0.2rem 0.55rem;border-radius:2px;">Self-Initiated</span>
-          <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:0.2rem 0.55rem;border-radius:2px;">NDA Safe</span>
-        </div>
-      </div>
-      <div style="font-family:'DM Mono',monospace;font-size:0.8rem;color:var(--accent);white-space:nowrap;flex-shrink:0;">View Sample →</div>
+  <div class="hero-left">
+    <p class="hero-eyebrow">Digital PR · Editorial Link Building · SaaS &amp; B2B</p>
+    <h1 class="hero-name">Jacquis Cerda</h1>
+    <p class="hero-title">Digital PR Outreach Specialist</p>
+    <p class="hero-desc">
+      I help <strong>SaaS and B2B brands</strong> earn editorial backlinks in DR 40+ publications through journalist-style pitching. Featured-first. No paid links. No directories. Just earned media placements.
+    </p>
+    <div class="hero-actions">
+      <a href="mailto:jacqxbusiness@gmail.com" class="btn-primary">Work With Me</a>
+      <a href="#placements" class="btn-secondary">View Placements</a>
     </div>
-  </a>
+    <div class="stats-row">
+      <div class="stat">
+        <span class="stat-num">15+</span>
+        <span class="stat-label">Placements</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <span class="stat-num">DR 80</span>
+        <span class="stat-label">Highest Placement</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <span class="stat-num">7.6%</span>
+        <span class="stat-label">Win Rate</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <span class="stat-num">4 mo</span>
+        <span class="stat-label">Active Campaign</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="placement-card">
+      <div class="card-header">Recent Placements</div>
+      <div class="placement-item">
+        <div>
+          <div class="pub-name">TechBullion</div>
+          <div class="pub-platform">Featured</div>
+        </div>
+        <span class="dr-tag dr-high">DR 80</span>
+      </div>
+      <div class="placement-item">
+        <div>
+          <div class="pub-name">Survicate</div>
+          <div class="pub-platform">Mention Match</div>
+        </div>
+        <span class="dr-tag dr-high">DR 78</span>
+      </div>
+      <div class="placement-item">
+        <div>
+          <div class="pub-name">Featured.com</div>
+          <div class="pub-platform">Featured</div>
+        </div>
+        <span class="dr-tag dr-mid">DR 73</span>
+      </div>
+      <div class="placement-item">
+        <div>
+          <div class="pub-name">Letsenhance</div>
+          <div class="pub-platform">Featured</div>
+        </div>
+        <span class="dr-tag dr-mid">DR 74</span>
+      </div>
+      <div class="placement-item">
+        <div>
+          <div class="pub-name">Best Companies AZ</div>
+          <div class="pub-platform">Featured</div>
+        </div>
+        <span class="dr-tag dr-low">DR 55</span>
+      </div>
+      <div class="placement-item">
+        <div>
+          <div class="pub-name">Leadgrow Develop</div>
+          <div class="pub-platform">Outreach</div>
+        </div>
+        <span class="dr-tag dr-low">DR 48</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- SERVICE -->
+<section id="service">
+  <p class="section-label">What I Offer</p>
+  <h2 class="section-title">One Package. No Surprises.</h2>
+  <div class="section-rule"></div>
+
+  <div class="service-box">
+    <div class="service-price">$500 <span>/ month</span></div>
+    <p class="service-subtitle">2–3 editorial do-follow links per month</p>
+    <ul class="service-list">
+      <li>2–3 high-quality do-follow links from DR 40+ publications</li>
+      <li>Journalist-style pitches tailored to each query and platform</li>
+      <li>40–50 pitches per month across Featured, HARO, Qwoted, and more</li>
+      <li>Simple monthly report — live URLs, DR scores, platform source</li>
+      <li>Featured $20 subscription included in the monthly rate</li>
+      <li>Month-to-month — no long-term contract required</li>
+    </ul>
+    <p class="service-note">Additional links beyond 3 in any month are billed at $150 each.</p>
+  </div>
+
+  <div class="platform-tags" style="margin-top: 2rem;">
+    <span class="ptag featured">Featured ★ Primary</span>
+    <span class="ptag">HARO</span>
+    <span class="ptag">Qwoted</span>
+    <span class="ptag">Mention Match</span>
+    <span class="ptag">SourceBottle</span>
+    <span class="ptag">Source of Sources</span>
+  </div>
 </section>
 
-<!-- PROCESS -->
-<section id="process">
-  <div class="section-label">How It Works</div>
-  <h2>Three stages. No shortcuts.</h2>
+<hr class="divider">
+
+<!-- NICHES -->
+<section>
+  <p class="section-label">Niches</p>
+  <h2 class="section-title">Who I Work With</h2>
+  <div class="section-rule"></div>
+  <div class="niche-grid">
+    <div class="niche-item">
+      SaaS &amp; B2B Software
+      <div class="niche-sub">Founders, executives, product teams</div>
+    </div>
+    <div class="niche-item">
+      Digital Marketing &amp; SEO
+      <div class="niche-sub">Agencies, consultants, in-house teams</div>
+    </div>
+    <div class="niche-item">
+      Entrepreneurship &amp; Business
+      <div class="niche-sub">Operators, startups, growth brands</div>
+    </div>
+    <div class="niche-item">
+      Consumer Tech
+      <div class="niche-sub">Hardware brands, smart home, devices</div>
+    </div>
+    <div class="niche-item">
+      Travel &amp; Hospitality
+      <div class="niche-sub">Destination brands, travel services</div>
+    </div>
+    <div class="niche-item">
+      HR &amp; Workforce Tech
+      <div class="niche-sub">HR platforms, recruitment tools</div>
+    </div>
+  </div>
+  <p style="font-size: 0.8rem; color: var(--muted); margin-top: 1.25rem; font-style: italic;">All pitches stay within PR, communication, brand storytelling, and customer experience angles. No medical, financial, or legal advice.</p>
+</section>
+
+<hr class="divider">
+
+<!-- HOW IT WORKS -->
+<section>
+  <p class="section-label">Process</p>
+  <h2 class="section-title">How It Works</h2>
+  <div class="section-rule"></div>
   <div class="process-grid">
     <div class="process-item">
       <div class="process-num">01</div>
-      <div class="process-title">Strategy</div>
-      <p class="process-desc">Publication research matched to your niche, DR targets, and editorial calendar. Every pitch angle built around what journalists actually need.</p>
+      <div class="process-title">Onboarding</div>
+      <p class="process-desc">You share your niche, audience, key messages, and 1–2 competitors. Takes 15–30 minutes of your time.</p>
     </div>
     <div class="process-item">
       <div class="process-num">02</div>
-      <div class="process-title">Pitching</div>
-      <p class="process-desc">Outreach through Featured, Qwoted, HARO, Source of Sources, Mention Match, JournoRequest, and direct journalist contact. Positioned as expert commentary, not product promotion.</p>
+      <div class="process-title">Angle Creation</div>
+      <p class="process-desc">I match your brand voice and expertise to active journalist queries — media-style hooks that fit what reporters need.</p>
     </div>
     <div class="process-item">
       <div class="process-num">03</div>
-      <div class="process-title">Tracking</div>
-      <p class="process-desc">Every placement logged with live URL, DR score, and Media Outlet — with a monthly report delivered before the next invoice is sent.</p>
+      <div class="process-title">Pitching</div>
+      <p class="process-desc">Quote-ready pitches go out across Featured, HARO, Qwoted, and other platforms. 40–50 pitches per month, consistently.</p>
+    </div>
+    <div class="process-item">
+      <div class="process-num">04</div>
+      <div class="process-title">Reporting</div>
+      <p class="process-desc">A simple monthly log shows where each link landed, the publication's DR, and the platform it came from. No surprises.</p>
     </div>
   </div>
 </section>
 
-<!-- PACKAGES -->
-<section id="packages">
-  <div class="section-label">Pricing</div>
-  <h2>Retainer + performance model.</h2>
-  <p style="color:var(--muted);font-size:0.9rem;margin-bottom:2rem;">The retainer covers my strategy and outreach. Links are billed on delivery — you pay only when the placement is live and verified.</p>
+<hr class="divider">
 
-  <div class="packages-grid">
-    <div class="package">
-      <div class="pkg-badge">Starter</div>
-      <div class="pkg-name">3 Links</div>
-      <div class="pkg-price">$750</div>
-      <div class="pkg-price-note">$300 retainer + 3 × $150</div>
-      <div class="pkg-divider"></div>
-      <ul class="pkg-features">
-        <li>3 confirmed do-follow placements</li>
-        <li>DR 35+ publications only</li>
-        <li>Strategy + pitching + tracking</li>
-        <li>Monthly report</li>
-      </ul>
+<!-- PLACEMENTS -->
+<section id="placements">
+  <p class="section-label">Placement Record</p>
+  <h2 class="section-title">15+ Verified Do-Follow Links</h2>
+  <div class="section-rule"></div>
+  <p style="font-size: 0.875rem; color: var(--muted); margin-bottom: 2rem;">All placements below were earned through media-style digital PR outreach. Client name omitted — consumer tech brand under NDA. All links are publicly verifiable.</p>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <div class="portfolio-pub">TechBullion</div>
+      <div class="portfolio-meta">
+        <span class="dr-tag dr-high">DR 80</span>
+        <span class="ptag featured" style="font-size: 0.72rem; padding: 2px 7px;">Featured</span>
+      </div>
+      <p class="portfolio-desc">Expert commentary on workplace productivity and software tools. Business and tech audience, US publication.</p>
     </div>
-
-    <div class="package featured-pkg">
-      <div class="pkg-badge">Most Popular · Growth</div>
-      <div class="pkg-name">5 Links</div>
-      <div class="pkg-price">$1,050</div>
-      <div class="pkg-price-note">$300 retainer + 5 × $150</div>
-      <div class="pkg-divider"></div>
-      <ul class="pkg-features">
-        <li>5 confirmed do-follow placements</li>
-        <li>DR 35+ publications only</li>
-        <li>Strategy + pitching + tracking</li>
-        <li>Live pitch tracker shared in real time</li>
-        <li>Priority pitch queue</li>
-      </ul>
+    <div class="portfolio-item">
+      <div class="portfolio-pub">Survicate</div>
+      <div class="portfolio-meta">
+        <span class="dr-tag dr-high">DR 78</span>
+        <span class="ptag" style="font-size: 0.72rem; padding: 2px 7px;">Mention Match</span>
+      </div>
+      <p class="portfolio-desc">Brand storytelling and market positioning piece. B2B user research and feedback platform audience.</p>
     </div>
-
-    <div class="package">
-      <div class="pkg-badge">Authority</div>
-      <div class="pkg-name">9 Links</div>
-      <div class="pkg-price">$1,650</div>
-      <div class="pkg-price-note">$300 retainer + 9 × $150</div>
-      <div class="pkg-divider"></div>
-      <ul class="pkg-features">
-        <li>9 confirmed do-follow placements</li>
-        <li>DR 35+ publications only</li>
-        <li>Strategy + pitching + tracking</li>
-        <li>Live pitch tracker shared in real time</li>
-        <li>Priority pitch queue</li>
-        <li>UK + US publication targeting</li>
-      </ul>
+    <div class="portfolio-item">
+      <div class="portfolio-pub">Letsenhance</div>
+      <div class="portfolio-meta">
+        <span class="dr-tag dr-mid">DR 74</span>
+        <span class="ptag featured" style="font-size: 0.72rem; padding: 2px 7px;">Featured</span>
+      </div>
+      <p class="portfolio-desc">AI creative workflow insights for design and content professionals.</p>
     </div>
-  </div>
-
-  <div class="retainer-note">
-    <p><strong>How billing works:</strong> The $300 monthly retainer is due at the start of each cycle. Two spreadsheets are shared throughout: a live pitch tracker showing each query, publication, and submission status, and a placement log with the live URL, DR score, and target URL used by the publisher. Per-link invoices of $150 are sent on delivery with proof. No placement, no charge.</p>
+    <div class="portfolio-item">
+      <div class="portfolio-pub">Featured.com</div>
+      <div class="portfolio-meta">
+        <span class="dr-tag dr-mid">DR 73</span>
+        <span class="ptag featured" style="font-size: 0.72rem; padding: 2px 7px;">Featured</span>
+      </div>
+      <p class="portfolio-desc">Ecommerce personalization expert roundup. B2B audience focused on digital commerce and customer experience.</p>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-pub">Best Companies AZ</div>
+      <div class="portfolio-meta">
+        <span class="dr-tag dr-low">DR 55</span>
+        <span class="ptag featured" style="font-size: 0.72rem; padding: 2px 7px;">Featured</span>
+      </div>
+      <p class="portfolio-desc">Employer branding KPIs and workplace culture expert commentary.</p>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-pub">Westfield Creative</div>
+      <div class="portfolio-meta">
+        <span class="dr-tag dr-low">DR 48</span>
+        <span class="ptag" style="font-size: 0.72rem; padding: 2px 7px;">Outreach</span>
+      </div>
+      <p class="portfolio-desc">Digital marketing strategies and brand communication best practices.</p>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-pub">Leadgrow Develop</div>
+      <div class="portfolio-meta">
+        <span class="dr-tag dr-low">DR 48</span>
+        <span class="ptag" style="font-size: 0.72rem; padding: 2px 7px;">Outreach</span>
+      </div>
+      <p class="portfolio-desc">Marketing strategies and growth insights for B2B and digital brands.</p>
+    </div>
   </div>
 </section>
 
-<!-- CTA -->
-<div class="cta-section" id="contact">
-  <div class="cta-text">
-    <h2>Ready to build<br>your link profile?</h2>
-    <p>Let's talk about your domain, target publications, and what a 3-month run could look like for your brand.</p>
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">About</p>
+  <h2 class="section-title">Built on Writing, Not Just Tools</h2>
+  <div class="section-rule"></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I am a Digital PR Outreach Specialist based in San Mateo, Rizal, Philippines. Before moving into digital PR, I spent four years teaching English and Communications — and that foundation shapes every pitch I write. Clear, audience-aware, and built to get published.</p>
+      <p>In four months of active campaign work, I secured <strong>15+ confirmed do-follow placements</strong> on US and UK publications — starting with zero prior experience in the field. My primary platform is <strong>Featured</strong>, where my win rate consistently exceeds the industry average of 5%.</p>
+      <p>I work asynchronously, I manage my own pipeline, and I only invoice when a link is live. No retainer fees for undelivered work.</p>
+    </div>
+    <div class="about-skills">
+      <div class="skill-row">
+        <span class="skill-label">Platforms</span>
+        <div class="skill-tags">
+          <span class="skill-tag">Featured</span>
+          <span class="skill-tag">HARO</span>
+          <span class="skill-tag">Qwoted</span>
+          <span class="skill-tag">Mention Match</span>
+          <span class="skill-tag">SourceBottle</span>
+          <span class="skill-tag">Source of Sources</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">SEO Tools</span>
+        <div class="skill-tags">
+          <span class="skill-tag">Ahrefs</span>
+          <span class="skill-tag">Semrush</span>
+          <span class="skill-tag">Google Search Console</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Writing Tools</span>
+        <div class="skill-tags">
+          <span class="skill-tag">Walter Writes</span>
+          <span class="skill-tag">Pangram Pangram</span>
+          <span class="skill-tag">Grammarly</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Availability</span>
+        <div class="skill-tags">
+          <span class="skill-tag">Remote only</span>
+          <span class="skill-tag">Philippine time (PHT)</span>
+          <span class="skill-tag">US / AU overlap open</span>
+        </div>
+      </div>
+    </div>
   </div>
-  <a href="mailto:jacqxbusiness@gmail.com" class="cta-btn">Get in Touch →</a>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <h2>Ready to Earn Editorial Links?</h2>
+  <p>Month-to-month, no contract. $500/month for 2–3 do-follow editorial placements.</p>
+  <a href="mailto:jacqxbusiness@gmail.com" class="cta-email">jacqxbusiness@gmail.com</a>
+  <span class="cta-alt">Looking for agency or team services? <a href="agency.html" style="color: rgba(255,255,255,0.55);">See agency version →</a></span>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Jacquis Cerda · Digital PR Specialist</p>
+  <span>© 2026 Jacquis Cerda · Digital PR Specialist</span>
+  <div style="display: flex; gap: 1.5rem;">
+    <a href="mailto:jacqxbusiness@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/jacquiscerda">LinkedIn</a>
+    <a href="agency.html">Agency Version</a>
+  </div>
 </footer>
+
 </body>
 </html>
