@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jacquis Cerda — Agency &amp; Team Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1A1A1A;
+    --accent: #1B4F72;
+    --accent2: #C8472B;
+    --muted: #6B6560;
+    --bg: #F4F6F9;
+    --white: #FFFFFF;
+    --rule: #DDD8D2;
+    --tag-bg: #E8EDF2;
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(244, 246, 249, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    z-index: 100;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-badge {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    background: var(--accent);
+    color: var(--white);
+    border-radius: 3px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-back {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 7rem 2rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .hero-inner { max-width: 680px; }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    max-width: 560px;
+  }
+
+  .hero-desc strong { color: var(--ink); font-weight: 500; }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.7rem 1.6rem;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: opacity 0.2s;
+  }
+
+  .btn-primary:hover { opacity: 0.88; }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 0.7rem 1.6rem;
+    border: 1.5px solid var(--rule);
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: var(--ink); color: var(--ink); }
+
+  .stats-row {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .stat { display: flex; flex-direction: column; gap: 2px; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .stat-div {
+    width: 1px;
+    background: var(--rule);
+    align-self: stretch;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .section-rule {
+    width: 40px;
+    height: 3px;
+    background: var(--accent);
+    margin-bottom: 2.4rem;
+  }
+
+  hr.divider {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    border: none;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* SERVICES GRID */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.75rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card.primary {
+    border-color: var(--accent);
+    border-width: 1.5px;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--accent);
+  }
+
+  .service-icon {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .service-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .service-desc {
+    font-size: 0.825rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 1.1rem;
+  }
+
+  .service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .service-list li {
+    font-size: 0.8rem;
+    color: var(--muted);
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .service-list li::before {
+    content: '—';
+    color: var(--accent);
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  /* ON-PAGE SEO DETAIL */
+  .onpage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .onpage-item {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 1.1rem;
+  }
+
+  .onpage-title {
+    font-size: 0.825rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+
+  .onpage-desc {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* PLACEMENT TABLE */
+  .placement-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  .placement-table th {
+    text-align: left;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0.6rem 1rem;
+    border-bottom: 2px solid var(--rule);
+  }
+
+  .placement-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+  }
+
+  .placement-table tr:last-child td { border-bottom: none; }
+
+  .placement-table tr:nth-child(even) td { background: rgba(255,255,255,0.5); }
+
+  .dr-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  .dr-high { background: #E1F5EE; color: #0A6E52; }
+  .dr-mid  { background: #E6F1FB; color: #1558A5; }
+  .dr-low  { background: var(--tag-bg); color: var(--muted); }
+
+  /* WHY WORK */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .why-item {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+
+  .why-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .why-desc {
+    font-size: 0.825rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* PLATFORMS */
+  .ptag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    color: var(--muted);
+    background: var(--white);
+    margin: 0.3rem 0.3rem 0 0;
+  }
+
+  .ptag.primary-p {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(27, 79, 114, 0.05);
+  }
+
+  /* CTA */
+  .cta-strip {
+    background: var(--ink);
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .cta-strip h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-strip p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 2rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-email {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: opacity 0.2s;
+  }
+
+  .cta-email:hover { opacity: 0.88; }
+
+  .cta-alt {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  footer {
+    background: #111;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer span { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+  footer a { font-size: 0.78rem; color: rgba(255,255,255,0.45); text-decoration: none; }
+  footer a:hover { color: var(--accent2); }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div style="display: flex; align-items: center; gap: 0.5rem;">
+    <a href="index.html" class="nav-logo">Jacquis Cerda</a>
+    <span class="nav-badge">Agency</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#placements">Placements</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <a href="index.html" class="nav-back">← Freelance Version</a>
+</nav>
+
+<!-- HERO -->
+<div style="background: var(--white); border-bottom: 1px solid var(--rule);">
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Digital PR · Guest Post Outreach · On-Page SEO · Available for Agency Teams</p>
+      <h1 class="hero-name">Jacquis Cerda</h1>
+      <p class="hero-title">Digital PR &amp; SEO Outreach Specialist — Agency Ready</p>
+      <p class="hero-desc">
+        I support agencies and marketing teams with <strong>editorial link building</strong>, <strong>guest post outreach</strong>, <strong>unlinked mention recovery</strong>, and <strong>basic on-page SEO</strong>. I deliver consistently, communicate clearly, and operate without hand-holding.
+      </p>
+      <div class="hero-actions">
+        <a href="mailto:jacqxbusiness@gmail.com" class="btn-primary">Discuss a Project</a>
+        <a href="#placements" class="btn-secondary">View Placement Record</a>
+      </div>
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-num">15+</span>
+          <span class="stat-label">Verified Links</span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat">
+          <span class="stat-num">DR 80</span>
+          <span class="stat-label">Top Placement</span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat">
+          <span class="stat-num">7.6%</span>
+          <span class="stat-label">Win Rate</span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat">
+          <span class="stat-num">4 mo</span>
+          <span class="stat-label">Campaign Track</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="section-label">Services</p>
+  <h2 class="section-title">What I Can Do for Your Team</h2>
+  <div class="section-rule"></div>
+  <div class="services-grid">
+
+    <div class="service-card primary">
+      <span class="service-icon">📡</span>
+      <div class="service-title">Editorial Link Building</div>
+      <p class="service-desc">Journalist-style pitching across HARO, Featured, Qwoted, Mention Match, and Source of Sources. Quote-ready answers that earn editorial do-follow links from DR 40+ publications.</p>
+      <ul class="service-list">
+        <li>40–50 pitches per month per client</li>
+        <li>Featured as primary platform — highest conversion rate</li>
+        <li>Pitch tracker and placement log shared monthly</li>
+        <li>US and UK publications — consumer tech, SaaS, B2B focus</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">✍️</span>
+      <div class="service-title">Guest Post Outreach</div>
+      <p class="service-desc">Prospect research, pitch email writing, negotiation, and submission coordination for editorial guest posts. Content briefs provided for writers.</p>
+      <ul class="service-list">
+        <li>Site prospecting and contact finding</li>
+        <li>Personalized pitch emails per site</li>
+        <li>Budget and payment negotiation with publishers</li>
+        <li>Content brief writing for assigned writers</li>
+        <li>Article review before submission</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🔗</span>
+      <div class="service-title">Unlinked Mention Outreach</div>
+      <p class="service-desc">Finding existing brand mentions that have no link and reaching out to publishers to convert them into do-follow backlinks.</p>
+      <ul class="service-list">
+        <li>Unlinked mention prospecting via Ahrefs</li>
+        <li>Outreach email writing and follow-up</li>
+        <li>Status tracking and reporting</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">⚙️</span>
+      <div class="service-title">Basic On-Page SEO</div>
+      <p class="service-desc">Foundational on-page optimization for blog posts and landing pages. Supporting content teams and SEO leads with page-level improvements.</p>
+      <ul class="service-list">
+        <li>Heading tag structure review and optimization (H1, H2, H3)</li>
+        <li>Image alt text writing and optimization</li>
+        <li>Meta title and meta description writing</li>
+        <li>Internal linking suggestions</li>
+        <li>Basic keyword placement review</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ON-PAGE DETAIL -->
+<section>
+  <p class="section-label">On-Page SEO</p>
+  <h2 class="section-title">What Basic On-Page Covers</h2>
+  <div class="section-rule"></div>
+  <p style="font-size: 0.875rem; color: var(--muted); margin-bottom: 0.5rem;">These are the specific tasks I can deliver as part of an on-page SEO support role. I do not do technical SEO audits, site speed optimization, or schema markup without supervision from a senior SEO lead.</p>
+  <div class="onpage-grid">
+    <div class="onpage-item">
+      <div class="onpage-title">Heading Tag Structure</div>
+      <p class="onpage-desc">Review and rewrite H1, H2, and H3 tags for proper hierarchy, keyword placement, and readability.</p>
+    </div>
+    <div class="onpage-item">
+      <div class="onpage-title">Image Alt Text</div>
+      <p class="onpage-desc">Write descriptive, keyword-informed alt text for all images on target pages and blog posts.</p>
+    </div>
+    <div class="onpage-item">
+      <div class="onpage-title">Meta Titles &amp; Descriptions</div>
+      <p class="onpage-desc">Write optimized meta titles (under 60 characters) and descriptions (150–160 characters) for target pages.</p>
+    </div>
+    <div class="onpage-item">
+      <div class="onpage-title">Internal Linking</div>
+      <p class="onpage-desc">Identify and suggest internal link opportunities from existing content to target pages using relevant anchor text.</p>
+    </div>
+    <div class="onpage-item">
+      <div class="onpage-title">Keyword Placement Review</div>
+      <p class="onpage-desc">Review existing content for natural keyword placement in titles, subheadings, and opening paragraphs.</p>
+    </div>
+    <div class="onpage-item">
+      <div class="onpage-title">Content Brief Writing</div>
+      <p class="onpage-desc">Write structured content briefs for writers including keyword targets, heading suggestions, and link placement instructions.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PLATFORMS -->
+<section>
+  <p class="section-label">Platforms &amp; Tools</p>
+  <h2 class="section-title">Tools I Work With</h2>
+  <div class="section-rule"></div>
+  <div>
+    <p style="font-size: 0.8rem; font-weight: 500; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;">Outreach Platforms</p>
+    <span class="ptag primary-p">Featured ★ Primary</span>
+    <span class="ptag">HARO</span>
+    <span class="ptag">Qwoted</span>
+    <span class="ptag">Mention Match</span>
+    <span class="ptag">SourceBottle</span>
+    <span class="ptag">Source of Sources</span>
+  </div>
+  <div style="margin-top: 1.5rem;">
+    <p style="font-size: 0.8rem; font-weight: 500; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;">SEO &amp; Research Tools</p>
+    <span class="ptag">Ahrefs</span>
+    <span class="ptag">Semrush</span>
+    <span class="ptag">Google Search Console</span>
+    <span class="ptag">Google Analytics</span>
+  </div>
+  <div style="margin-top: 1.5rem;">
+    <p style="font-size: 0.8rem; font-weight: 500; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;">Writing &amp; Productivity</p>
+    <span class="ptag">Walter Writes</span>
+    <span class="ptag">Pangram Pangram</span>
+    <span class="ptag">Grammarly</span>
+    <span class="ptag">Google Sheets</span>
+    <span class="ptag">Google Docs</span>
+    <span class="ptag">Trello</span>
+    <span class="ptag">Slack</span>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PLACEMENTS -->
+<section id="placements">
+  <p class="section-label">Track Record</p>
+  <h2 class="section-title">Verified Placement Record</h2>
+  <div class="section-rule"></div>
+  <p style="font-size: 0.875rem; color: var(--muted); margin-bottom: 1.5rem;">15+ confirmed do-follow placements in 4 months. One active client — consumer tech brand under NDA. All links publicly verifiable.</p>
+  <div style="background: var(--white); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden;">
+    <table class="placement-table">
+      <thead>
+        <tr>
+          <th>Publication</th>
+          <th>DR</th>
+          <th>Platform</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>TechBullion</strong></td>
+          <td><span class="dr-badge dr-high">DR 80</span></td>
+          <td>Featured</td>
+          <td>Do-follow editorial</td>
+        </tr>
+        <tr>
+          <td><strong>Survicate</strong></td>
+          <td><span class="dr-badge dr-high">DR 78</span></td>
+          <td>Mention Match</td>
+          <td>Do-follow editorial</td>
+        </tr>
+        <tr>
+          <td><strong>Letsenhance</strong></td>
+          <td><span class="dr-badge dr-mid">DR 74</span></td>
+          <td>Featured</td>
+          <td>Do-follow editorial</td>
+        </tr>
+        <tr>
+          <td><strong>Featured.com</strong></td>
+          <td><span class="dr-badge dr-mid">DR 73</span></td>
+          <td>Featured</td>
+          <td>Do-follow editorial</td>
+        </tr>
+        <tr>
+          <td><strong>Best Companies AZ</strong></td>
+          <td><span class="dr-badge dr-low">DR 55</span></td>
+          <td>Featured</td>
+          <td>Do-follow editorial</td>
+        </tr>
+        <tr>
+          <td><strong>Westfield Creative</strong></td>
+          <td><span class="dr-badge dr-low">DR 48</span></td>
+          <td>Outreach</td>
+          <td>Do-follow editorial</td>
+        </tr>
+        <tr>
+          <td><strong>Leadgrow Develop</strong></td>
+          <td><span class="dr-badge dr-low">DR 48</span></td>
+          <td>Outreach</td>
+          <td>Do-follow editorial</td>
+        </tr>
+        <tr>
+          <td colspan="4" style="font-size: 0.78rem; color: var(--muted); font-style: italic; padding: 0.75rem 1rem;">+ additional placements. Full record available on request. Client names omitted — NDA.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- WHY -->
+<section id="about">
+  <p class="section-label">Why Work With Me</p>
+  <h2 class="section-title">What Agencies Get</h2>
+  <div class="section-rule"></div>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-title">Output-based work ethic</div>
+      <p class="why-desc">I am a former teacher — deadline-driven, organized, and used to working independently without being followed up on.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-title">Verifiable results</div>
+      <p class="why-desc">Every placement I claim is publicly live. DR 80, DR 78, DR 74 placements in the first four months — not on paid directories.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-title">Strong written English</div>
+      <p class="why-desc">All pitches and client-facing content written independently. No translation needed. BA in English and Communications, 4 years of teaching.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-title">Transparent tracking</div>
+      <p class="why-desc">Pitch tracker and placement log shared with the team from day one. You always know what is in progress and what has gone live.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-title">Remote and async</div>
+      <p class="why-desc">Based in the Philippines. Available part-time or full-time. Open to US or Australian time zone overlap. No real-time availability required.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-title">NDA-ready</div>
+      <p class="why-desc">Comfortable working under NDA with client anonymity. Current campaign is under NDA — this is standard practice for me.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <h2>Ready to Add Outreach Capacity?</h2>
+  <p>Available for agency retainers, project-based work, and part-time or full-time team roles. Rates discussed on inquiry — no package minimums for agency arrangements.</p>
+  <a href="mailto:jacqxbusiness@gmail.com" class="cta-email">jacqxbusiness@gmail.com</a>
+  <span class="cta-alt">Solo freelance version at <a href="index.html" style="color: rgba(255,255,255,0.55);">jacqcerda.github.io</a></span>
+</div>
+
+<footer>
+  <span>© 2026 Jacquis Cerda · Digital PR &amp; SEO Outreach Specialist</span>
+  <div style="display: flex; gap: 1.5rem;">
+    <a href="mailto:jacqxbusiness@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/jacquiscerda">LinkedIn</a>
+    <a href="index.html">Freelance Version</a>
+  </div>
+</footer>
+
+</body>
+</html>
