@@ -616,8 +616,70 @@
 
   footer a:hover { color: var(--accent); }
 
-  /* RESPONSIVE */
+  .portfolio-link {
+    text-decoration: none;
+    display: block;
+    transition: box-shadow 0.2s, transform 0.15s;
+  }
+
+  .portfolio-link:hover {
+    box-shadow: 0 6px 24px rgba(200,71,43,0.10);
+    transform: translateY(-2px);
+  }
+
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 72px 60px 130px 1fr 100px 20px;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .timeline-row:last-of-type { border-bottom: none; }
+  .timeline-row:hover { background: #faf8f5; }
+
+  .timeline-date {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .timeline-pub {
+    font-size: 0.825rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .timeline-topic {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .timeline-platform {
+    font-size: 0.72rem;
+    color: var(--accent);
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .timeline-arrow {
+    font-size: 0.875rem;
+    color: var(--accent);
+    text-align: right;
+  }
+
   @media (max-width: 768px) {
+    .timeline-row {
+      grid-template-columns: 60px 50px 1fr 16px;
+    }
+    .timeline-topic { display: none; }
+    .timeline-platform { display: none; }
+  }
     .hero { flex-direction: column; gap: 2.5rem; min-height: auto; padding-top: 5rem; }
     .hero-right { flex: 0 0 auto; width: 100%; }
     .about-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -827,65 +889,171 @@
 <!-- PLACEMENTS -->
 <section id="placements">
   <p class="section-label">Placement Record</p>
-  <h2 class="section-title">15+ Verified Do-Follow Links</h2>
+  <h2 class="section-title">15+ Verified Dofollow Links</h2>
   <div class="section-rule"></div>
-  <p style="font-size: 0.875rem; color: var(--muted); margin-bottom: 2rem;">All placements below were earned through media-style digital PR outreach. Client name omitted; consumer tech brand under NDA. All links are publicly verifiable.</p>
-  <div class="portfolio-grid">
-    <div class="portfolio-item">
-      <div class="portfolio-pub">TechBullion</div>
+  <p style="font-size: 0.875rem; color: var(--muted); margin-bottom: 2.5rem;">All placements earned through media-style digital PR outreach. Consumer tech client under NDA. Every link below is live and publicly verifiable — click to confirm.</p>
+
+  <!-- PLACEMENT CARDS WITH LIVE LINKS -->
+  <div class="portfolio-grid" style="margin-bottom: 3.5rem;">
+
+    <a href="https://techbullion.com/how-software-impacts-productivity-innovative-measurement-techniques/" target="_blank" rel="noopener" class="portfolio-item portfolio-link">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+        <div class="portfolio-pub">TechBullion</div>
+        <span style="font-size:0.72rem; color:var(--accent); font-weight:500;">↗ Live</span>
+      </div>
       <div class="portfolio-meta">
         <span class="dr-tag dr-high">DR 80</span>
         <span class="ptag featured" style="font-size: 0.72rem; padding: 2px 7px;">Featured</span>
       </div>
-      <p class="portfolio-desc">Expert commentary on workplace productivity and software tools. Business and tech audience, US publication.</p>
-    </div>
-    <div class="portfolio-item">
-      <div class="portfolio-pub">Survicate</div>
+      <p class="portfolio-desc">How software impacts productivity — expert commentary on measurement techniques. Business and tech audience.</p>
+    </a>
+
+    <a href="https://survicate.com/blog/epic-brand-self-sabotages/" target="_blank" rel="noopener" class="portfolio-item portfolio-link">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+        <div class="portfolio-pub">Survicate</div>
+        <span style="font-size:0.72rem; color:var(--accent); font-weight:500;">↗ Live</span>
+      </div>
       <div class="portfolio-meta">
         <span class="dr-tag dr-high">DR 78</span>
         <span class="ptag" style="font-size: 0.72rem; padding: 2px 7px;">Mention Match</span>
       </div>
-      <p class="portfolio-desc">Brand storytelling and market positioning piece. B2B user research and feedback platform audience.</p>
-    </div>
-    <div class="portfolio-item">
-      <div class="portfolio-pub">Letsenhance</div>
+      <p class="portfolio-desc">Epic brand self-sabotages — brand storytelling and market positioning insights. B2B user research platform.</p>
+    </a>
+
+    <a href="https://letsenhance.io/blog/all/ai-creative-workflows-insights/" target="_blank" rel="noopener" class="portfolio-item portfolio-link">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+        <div class="portfolio-pub">Letsenhance</div>
+        <span style="font-size:0.72rem; color:var(--accent); font-weight:500;">↗ Live</span>
+      </div>
       <div class="portfolio-meta">
         <span class="dr-tag dr-mid">DR 74</span>
         <span class="ptag featured" style="font-size: 0.72rem; padding: 2px 7px;">Featured</span>
       </div>
-      <p class="portfolio-desc">AI creative workflow insights for design and content professionals.</p>
-    </div>
-    <div class="portfolio-item">
-      <div class="portfolio-pub">Featured.com</div>
+      <p class="portfolio-desc">AI creative workflow insights — expert commentary for design and content professionals.</p>
+    </a>
+
+    <a href="https://featured.com/questions/ecommerce-personalization-enhance-shopping-experience-example" target="_blank" rel="noopener" class="portfolio-item portfolio-link">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+        <div class="portfolio-pub">Featured.com</div>
+        <span style="font-size:0.72rem; color:var(--accent); font-weight:500;">↗ Live</span>
+      </div>
       <div class="portfolio-meta">
         <span class="dr-tag dr-mid">DR 73</span>
         <span class="ptag featured" style="font-size: 0.72rem; padding: 2px 7px;">Featured</span>
       </div>
-      <p class="portfolio-desc">Ecommerce personalization expert roundup. B2B audience focused on digital commerce and customer experience.</p>
-    </div>
-    <div class="portfolio-item">
-      <div class="portfolio-pub">Best Companies AZ</div>
+      <p class="portfolio-desc">Ecommerce personalization expert roundup — enhancing the shopping experience with real examples.</p>
+    </a>
+
+    <a href="https://bestcompaniesaz.com/blog/18-kpis-to-measure-employer-branding-and-why-they-matter/" target="_blank" rel="noopener" class="portfolio-item portfolio-link">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+        <div class="portfolio-pub">Best Companies AZ</div>
+        <span style="font-size:0.72rem; color:var(--accent); font-weight:500;">↗ Live</span>
+      </div>
       <div class="portfolio-meta">
         <span class="dr-tag dr-low">DR 55</span>
         <span class="ptag featured" style="font-size: 0.72rem; padding: 2px 7px;">Featured</span>
       </div>
-      <p class="portfolio-desc">Employer branding KPIs and workplace culture expert commentary.</p>
-    </div>
-    <div class="portfolio-item">
-      <div class="portfolio-pub">Westfield Creative</div>
+      <p class="portfolio-desc">18 KPIs to measure employer branding — workplace culture expert commentary.</p>
+    </a>
+
+    <a href="https://westfield-creative.com/email-marketing/15-ways-to-use-customer-testimonials-in-ecommerce-email-campaigns/" target="_blank" rel="noopener" class="portfolio-item portfolio-link">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+        <div class="portfolio-pub">Westfield Creative</div>
+        <span style="font-size:0.72rem; color:var(--accent); font-weight:500;">↗ Live</span>
+      </div>
       <div class="portfolio-meta">
         <span class="dr-tag dr-low">DR 48</span>
         <span class="ptag" style="font-size: 0.72rem; padding: 2px 7px;">Outreach</span>
       </div>
-      <p class="portfolio-desc">Digital marketing strategies and brand communication best practices.</p>
-    </div>
-    <div class="portfolio-item">
-      <div class="portfolio-pub">Leadgrow Develop</div>
+      <p class="portfolio-desc">15 ways to use customer testimonials in ecommerce email campaigns — digital marketing best practices.</p>
+    </a>
+
+    <a href="https://leadgrowdevelop.com/17-digital-marketing-strategies-that-surprised-marketers-with-their-effectiveness-and-why-they-were-so-impactful/" target="_blank" rel="noopener" class="portfolio-item portfolio-link">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+        <div class="portfolio-pub">Leadgrow Develop</div>
+        <span style="font-size:0.72rem; color:var(--accent); font-weight:500;">↗ Live</span>
+      </div>
       <div class="portfolio-meta">
         <span class="dr-tag dr-low">DR 48</span>
         <span class="ptag" style="font-size: 0.72rem; padding: 2px 7px;">Outreach</span>
       </div>
-      <p class="portfolio-desc">Marketing strategies and growth insights for B2B and digital brands.</p>
+      <p class="portfolio-desc">17 digital marketing strategies that surprised marketers — effectiveness insights and impact analysis.</p>
+    </a>
+
+  </div>
+
+  <!-- WIN TIMELINE -->
+  <div style="background: var(--white); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden;">
+    <div style="padding: 1rem 1.5rem; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);">Win Timeline — Dec 2025 to Apr 2026</span>
+      <span style="font-size: 0.72rem; color: var(--muted);">All links publicly verifiable</span>
+    </div>
+
+    <a href="https://techbullion.com/how-software-impacts-productivity-innovative-measurement-techniques/" target="_blank" rel="noopener" class="timeline-row">
+      <span class="timeline-date">Dec 2025</span>
+      <span class="dr-tag dr-high" style="flex-shrink:0;">DR 80</span>
+      <span class="timeline-pub">TechBullion</span>
+      <span class="timeline-topic">How software impacts productivity — measurement techniques</span>
+      <span class="timeline-platform">Featured</span>
+      <span class="timeline-arrow">↗</span>
+    </a>
+
+    <a href="https://letsenhance.io/blog/all/ai-creative-workflows-insights/" target="_blank" rel="noopener" class="timeline-row">
+      <span class="timeline-date">Jan 2026</span>
+      <span class="dr-tag dr-mid" style="flex-shrink:0;">DR 74</span>
+      <span class="timeline-pub">Letsenhance</span>
+      <span class="timeline-topic">AI creative workflow insights for content professionals</span>
+      <span class="timeline-platform">Featured</span>
+      <span class="timeline-arrow">↗</span>
+    </a>
+
+    <a href="https://bestcompaniesaz.com/blog/18-kpis-to-measure-employer-branding-and-why-they-matter/" target="_blank" rel="noopener" class="timeline-row">
+      <span class="timeline-date">Jan 2026</span>
+      <span class="dr-tag dr-low" style="flex-shrink:0;">DR 55</span>
+      <span class="timeline-pub">Best Companies AZ</span>
+      <span class="timeline-topic">18 KPIs to measure employer branding</span>
+      <span class="timeline-platform">Featured</span>
+      <span class="timeline-arrow">↗</span>
+    </a>
+
+    <a href="https://westfield-creative.com/email-marketing/15-ways-to-use-customer-testimonials-in-ecommerce-email-campaigns/" target="_blank" rel="noopener" class="timeline-row">
+      <span class="timeline-date">Jan 2026</span>
+      <span class="dr-tag dr-low" style="flex-shrink:0;">DR 48</span>
+      <span class="timeline-pub">Westfield Creative</span>
+      <span class="timeline-topic">15 ways to use customer testimonials in email campaigns</span>
+      <span class="timeline-platform">Outreach</span>
+      <span class="timeline-arrow">↗</span>
+    </a>
+
+    <a href="https://survicate.com/blog/epic-brand-self-sabotages/" target="_blank" rel="noopener" class="timeline-row">
+      <span class="timeline-date">Feb 2026</span>
+      <span class="dr-tag dr-high" style="flex-shrink:0;">DR 78</span>
+      <span class="timeline-pub">Survicate</span>
+      <span class="timeline-topic">Epic brand self-sabotages — market positioning insights</span>
+      <span class="timeline-platform">Mention Match</span>
+      <span class="timeline-arrow">↗</span>
+    </a>
+
+    <a href="https://leadgrowdevelop.com/17-digital-marketing-strategies-that-surprised-marketers-with-their-effectiveness-and-why-they-were-so-impactful/" target="_blank" rel="noopener" class="timeline-row">
+      <span class="timeline-date">Feb 2026</span>
+      <span class="dr-tag dr-low" style="flex-shrink:0;">DR 48</span>
+      <span class="timeline-pub">Leadgrow Develop</span>
+      <span class="timeline-topic">17 digital marketing strategies that surprised marketers</span>
+      <span class="timeline-platform">Outreach</span>
+      <span class="timeline-arrow">↗</span>
+    </a>
+
+    <a href="https://featured.com/questions/ecommerce-personalization-enhance-shopping-experience-example" target="_blank" rel="noopener" class="timeline-row">
+      <span class="timeline-date">Mar 2026</span>
+      <span class="dr-tag dr-mid" style="flex-shrink:0;">DR 73</span>
+      <span class="timeline-pub">Featured.com</span>
+      <span class="timeline-topic">Ecommerce personalization — enhancing the shopping experience</span>
+      <span class="timeline-platform">Featured</span>
+      <span class="timeline-arrow">↗</span>
+    </a>
+
+    <div style="padding: 0.75rem 1.5rem; font-size: 0.78rem; color: var(--muted); font-style: italic; border-top: 1px solid var(--rule);">
+      + additional placements from Dec 2025 to Apr 2026 not listed above. Full tracker available on request.
     </div>
   </div>
 </section>
